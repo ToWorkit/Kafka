@@ -32,6 +32,8 @@ public class Producer_01 {
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         // value序列化
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        // 分区
+        props.put("partitioner.class", "com.ml.Partitioner_01");
 
         // log4
 //        BasicConfigurator.configure();
