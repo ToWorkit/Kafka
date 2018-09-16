@@ -25,7 +25,8 @@ public class Consumer_01 {
         // 创建消费者
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         // 一个消费者可以消费多个topic，但同一个组内只能消费一个topic
-        consumer.subscribe(Arrays.asList("first", "second", "bigdata"));
+        consumer.subscribe(Arrays.asList("one", "two", "bigdata"));
+//        consumer.subscribe(Arrays.asList("two"));
 
         while(true) {
             // 拉取数据(多条数据)

@@ -33,19 +33,14 @@ public class Producer_01 {
         // value序列化
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         // 分区
-        props.put("partitioner.class", "com.ml.Partitioner_01");
+//        props.put("partitioner.class", "com.ml.Partitioner_01");
 
         // log4
 //        BasicConfigurator.configure();
 
         Producer<String, String> producer = new KafkaProducer<>(props);
         for (int i = 0; i < 50; i++) {
-            producer.send(new ProducerRecord<String, String>("first", Integer.toString(i), "hello world-" + i), new Callback() {
-                @Override
-                public void onCompletion(RecordMetadata metadata, Exception exception) {
-                    System.out.println(metadata.partition() + "---" + metadata.offset());
-                }
-            });
+            producer.send(new ProducerRecord<String, String>("one", Integer.toString(i), "hello world-" + i));
         }
 
         producer.close();
